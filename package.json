@@ -1,0 +1,54 @@
+{
+    "name": "sharecommits-bitbuckettogithub",
+    "version": "1.0.0",
+    "description": "Node Script for including Bitbucket commits in the contributions graph on Github",
+    "main": "dist/index.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "author": "nmudd037",
+    "license": "MIT",
+    "scripts": {
+        "dev:watch": "tsc --watch",
+        "sc-btg-tsnode": "rimraf dist && node --loader ts-node/esm src/index.ts",
+        "sc-btg-node": "rimraf dist && tsc && TS_NODE_PROJECT=tsconfig.prod.json node -r tsconfig-paths/register dist/index.js",
+        "lint": "eslint \"src/**/*.{ts,js}\"",
+        "lint:fix": "eslint --fix \"src/**/*.{ts,js}\"",
+        "lint:quiet": "eslint --fix --quiet \"src/**/*.{ts,js}\"",
+        "prettier": "prettier --check \"./**/*.{ts,js,json,md}\"",
+        "prettier:write": "prettier --write \"./**/*.{ts,js,json,md}\"",
+        "pre-commit": "lint-staged"
+    },
+    "dependencies": {
+        "cross-fetch": "^3.1.4",
+        "dotenv": "^10.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.4",
+        "@typescript-eslint/eslint-plugin": "^5.8.0",
+        "@typescript-eslint/parser": "^5.8.0",
+        "concurrently": "^6.5.1",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^11.2.6",
+        "prettier": "^2.5.1",
+        "rimraf": "^3.0.2",
+        "ts-node": "^10.4.0",
+        "tsconfig-paths": "^3.10.1",
+        "typescript": "^4.5.4"
+    },
+    "lint-staged": {
+        "*.{js,ts}": [
+            "npm run lint:fix"
+        ],
+        "*.{js,ts,md,json,}": [
+            "npm run prettier:write"
+        ]
+    },
+    "engines": {
+        "node": ">=14"
+    }
+}
