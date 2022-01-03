@@ -6,7 +6,7 @@ A Node Script for including Bitbucket commits in the contributions graph on Gith
 
 Say you have some repositories on Bitbucket, e.g. for work. This program allows you to shadow your commit activity on Bitbucket to the contributions chart on your activity overview on GitHub.
 
-![Contribution graph on GitHub]()
+![Contribution graph on GitHub](https://raw.githubusercontent.com/nmudd037/sharecommits-bitbuckettogithub/master/examples/GithubContributionGraph.png)
 
 We do this by querying the Bitbucket workspace for commits made by us. The program then makes a _shadow_ repository on GitHub. Here each Bitbucket repository is represented by a file, and each Bitbucket commit is reflected by the Bitbucket commit hash in the file.
 
